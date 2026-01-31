@@ -29,12 +29,12 @@ const Cabin = styled.div`
 `;
 
 const Price = styled.div`
-  font-family: "Sono";
+  font-family: "Sono", sans-serif;
   font-weight: 600;
 `;
 
 const Discount = styled.div`
-  font-family: "Sono";
+  font-family: "Sono", sans-serif;
   font-weight: 500;
   color: var(--color-green-700);
 `;
@@ -76,7 +76,11 @@ function CabinRow({ cabin }) {
         <Cabin>{name}</Cabin>
         <div>Fits up to {maxCapacity} guests</div>
         <Price>{formatCurrency(regularPrice)}</Price>
-        <Discount>{formatCurrency(discount)}</Discount>
+        {discount ? (
+          <Discount>{formatCurrency(discount)}</Discount>
+        ) : (
+          <span>&mdash;</span>
+        )}
         <div>
           <button onClick={() => setShowForm((show) => !show)}>Edit</button>
           <button onClick={() => mutate(cabinId)} disabled={isDeleting}>
