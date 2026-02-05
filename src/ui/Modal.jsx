@@ -48,3 +48,11 @@ const Button = styled.button`
     color: var(--color-grey-500);
   }
 `;
+
+import React from "react";
+
+function Modal() {
+  return <StyledModal>Modal</StyledModal>;
+}
+
+export default Modal;
