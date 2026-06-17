@@ -28,7 +28,7 @@ function App() {
     // GlobalStyles are in the main.jsx file
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <BrowserRouter>
+      <BrowserRouter>x
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to={"dashboard"} />} />
