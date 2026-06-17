@@ -16,10 +16,10 @@ const StyledSelect = styled.select`
 
 import React from "react";
 
-function Select({ options, value }) {
+function Select({ options, value, onChange, ...props }) {
   return (
     <div>
-      <StyledSelect value={value}>
+      <StyledSelect value={value} onChange={onChange} {...props}>
         {options.map((option) => (
           <option value={option.value} key={option.value}>
             {option.label}
