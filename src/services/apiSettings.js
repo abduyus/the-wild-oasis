@@ -1,7 +1,7 @@
 import supabase from "./supabase";
 
 export async function getSettings() {
-  const { data, error } = await supabase.from("settings").select("*").single();
+  const { data, error } = await supabase.from("settings").select("*").maybeSingle();
 
   if (error) {
     console.error(error);
@@ -14,9 +14,8 @@ export async function getSettings() {
 export async function updateSetting(newSetting) {
   const { data, error } = await supabase
     .from("settings")
-    .update(newSetting)
-    // There is only ONE row of settings, and it has the ID=1, and so this is the updated one
-    .eq("id", 1)
+    .upsert({ id: 1, ...newSetting }, { onConflict: "id" })
+    .select()
     .single();
 
   if (error) {
