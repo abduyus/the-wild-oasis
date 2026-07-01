@@ -32,7 +32,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
-        x
         <Routes>
           <Route
             element={
